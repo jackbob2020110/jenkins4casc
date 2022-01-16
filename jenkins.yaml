@@ -24,12 +24,6 @@ jenkins:
   remotingSecurity:
     enabled: true    
 
-tool:
-  git:
-    installations:
-      - name: Default
-        home: "git"
-
 unclassified:
   location:
     url: http://172.17.0.18:8080/
