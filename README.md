@@ -8,7 +8,11 @@ Basically the same way as you would use the official Jenkins Docker image. With 
 
 ### Example: Minimum Configuration
 
-`docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -e CASC_JENKINS_CONFIG=https://raw.githubusercontent.com/Praqma/jenkins4casc/master/jenkins-minimal-example.yaml praqma/jenkins4casc`
+`
+chmod -R 777 jenkins-mini.yaml
+mkdir /opt/jenkins_home
+chmod -R 777 /opt/jenkins_home
+docker run -p 8080:8080 -p 50000:50000 -v /opt/jenkins_home:/var/jenkins_home -v jenkins-mini.yaml:/var/jenkins.yaml -e CASC_JENKINS_CONFIG=/var/jenkins.yaml jenkins4casc`
 
 We added the switch
 
