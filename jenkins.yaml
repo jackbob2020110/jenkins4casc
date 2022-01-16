@@ -1,0 +1,35 @@
+jenkins:
+  systemMessage: "\n\nDemo setup for Jenkins Configuration as Code plugin......\n\n"
+
+  numExecutors: 1
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+  labelString: "master-label"  
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${JENKINS_ADMIN_ID}
+         password: ${JENKINS_ADMIN_PASSWORD}
+
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+
+  crumbIssuer: "standard"
+
+  remotingSecurity:
+    enabled: true    
+
+tool:
+  git:
+    installations:
+      - name: Default
+        home: "git"
+
+unclassified:
+  location:
+    url: http://172.17.0.18:8080/
